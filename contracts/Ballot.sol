@@ -3,17 +3,11 @@ pragma experimental ABIEncoderV2;
 
 contract Ballot {
 
-    /*********************
-    *       TYPES        *
-    *********************/
+    /* TYPES */
 
-    /*********************
-    *       EVENTS       *
-    *********************/
+    /* EVENTS */
 
-    /*********************
-    *      VARIABLES     *
-    *********************/
+    /* VARIABLES */
     
     address owner;
 
@@ -23,9 +17,7 @@ contract Ballot {
     mapping(address => address[]) private votersAddressMapping;
     address[] private votersAddress;
 
-    /*********************
-    *      FUNCTIONS     *
-    *********************/
+    /*  FUNCTIONS  */
 
     constructor(address[] memory candidates) public {
         owner = msg.sender;
@@ -75,9 +67,7 @@ contract Ballot {
         return (currentWinner, currentCountVote);
     }
 
-    /*********************
-    *       GETTER       *
-    *********************/
+    /* GETTERS */
 
     function getCandidatesList() external view returns(address[] memory){
         return candidatesAddress;
@@ -95,13 +85,9 @@ contract Ballot {
         return owner;
     }
 
-    /*********************
-    *   PURE FUNCTIONS   *
-    *********************/
+    /* PURE FUNCTIONS */
 
-    /*********************
-    *      MODIFIERS     *
-    *********************/
+    /* MODIFIERS */
     
     modifier alreadyVoted() {
         require(!(votersAddressMapping[msg.sender].length > 0), "L'utilisateur a déjà voté");
